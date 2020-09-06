@@ -1,0 +1,76 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta charset="utf-8">
+<title>Chat Application</title>
+<meta name="description" content="Anonymous chat application">
+<meta name="author" content="Rajmohan Sakkarai">
+<link href="../static/images/logo.png" th:href="@{/images/logo.png}"
+	rel="icon">
+<link href="../static/style.css" th:href="@{/css/style.css}"
+	rel="stylesheet" media="screen" />
+<link href="../../static/css/bootstrap.min.css"
+	th:href="@{css/bootstrap.min.css}" rel="stylesheet" media="screen" />
+</head>
+
+<body>
+
+	<div id="title">Chat</div>
+
+	<!-- <form method="POST" th:object="${loginForm}">
+
+ <form id="authentication" onsubmit="return false;"> 
+    <input type="text" id="username" th:value="${username}" placeholder="Username" autofocus/>
+    <input type="password" id="password" th:value="${password}"  placeholder="Password"/>
+    <button class="button" >Sign In</button>
+    <span class="error" id="authentication-error"></span>
+</form> -->
+	<div class="container">
+
+		<div class="row" style="margin-top: 20px">
+			<div
+				class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
+				<form th:action="@{/login}" method="post">
+					<fieldset>
+						<!--  <h1>Please Sign In</h1> -->
+
+						<div th:if="${param.error}">
+							<div class="alert alert-danger">Invalid username and
+								password.</div>
+						</div>
+						<div th:if="${param.logout}">
+							<div class="alert alert-info">You have been logged out.</div>
+						</div>
+
+						<div class="form-group">
+							<input type="text" name="username" id="username"
+								class="form-control input-lg" placeholder="UserName"
+								required="true" autofocus="true" />
+						</div>
+						<div class="form-group">
+							<input type="password" name="password" id="password"
+								class="form-control input-lg" placeholder="Password"
+								required="true" />
+						</div>
+
+						<div class="row">
+							<div class="col-xs-3 col-sm-3 col-md-4"></div>
+							<div class="col-xs-6 col-sm-4 col-md-4">
+								<input type="submit" class="btn btn-lg btn-primary btn-block"
+									value="Sign In">
+							</div>
+							<div class="col-xs-3 col-sm-3 col-md-4"></div>
+						</div>
+					</fieldset>
+				</form>
+			</div>
+		</div>
+
+	</div>
+
+	<script type="text/javascript" src="../static/script/main.js"
+		th:src="@{script/main.js}">
+</script>
+</body>
+</html>
